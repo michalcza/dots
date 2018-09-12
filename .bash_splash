@@ -1,0 +1,30 @@
+#Create a custom login splash screen to display certain details when you login through SSH
+
+#Add the following commnted out lines to the bottom of your ~/.bashrc file
+#if [ -f ~/.bash_splash ]; then
+#        . ~/.bash_splash
+#fi
+
+
+let upSeconds="$(/usr/bin/cut -d. -f1 /proc/uptime)"
+let secs=$((${upSeconds}%60))
+let mins=$((${upSeconds}/60%60))
+let hours=$((${upSeconds}/3600%24))
+let days=$((${upSeconds}/86400))
+UPTIME=`printf "%d days, %02d:%02d:%02d" "$days" "$hours" "$mins" "$secs"`
+
+#GET SYSTEM LOAD AVERAGES
+read one five fifteen rest < /proc/loadavg
+#CHANGE OUTPUT COLOR TO GREEN
+echo "$(tput setaf 2)
+Date...............: `date +"%A, %B %d %Y %H:%M:%S"`
+Kernel & OS........: `uname -srmo`
+Uptime.............: ${UPTIME}
+Memory.............: `cat /proc/meminfo | grep MemFree | awk {'print $2'}`kB (Free) / `cat /proc/meminfo | grep MemTotal | awk {'print $2'}`kB (Total)
+Load Averages......: ${one}, ${five}, ${fifteen} (1, 5, 15 min)
+Running Processes..: `ps ax | wc -l | tr -d " "`
+#Update your network interface device here
+IP Addresses.......: `/sbin/ifconfig [interface name] | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1` and `wget -q -O - http://icanhazip.com/ | tail`
+Used Disk Space....: `df -Pk | grep -E '^[/DRIVE/MOUNT]' | awk '{ print $5 }'` on [/DRIVE/MOUNT]
+Weather ([zip])....: `curl -s "http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&locCode=[ZIPCODE]" | sed -n '/Currently:/ s/.*: \(.*\): \([0-9]*\)\([CF]\).*/\2°\3, \1/p'`
+$(tput sgr0)"
