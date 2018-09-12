@@ -1,0 +1,5 @@
+# Add the following lines to ~/.bashrc
+# Custom user specific configurations
+#if [ -f ~/.bash_user ]; then
+#        . ~/.bash_user  
+#fi
