@@ -1,9 +1,8 @@
-#Create a custom login splash screen to display certain details when you login through SSH
-
-#Add the following commnted out lines to the bottom of your ~/.bashrc file
-#if [ -f ~/.bash_splash ]; then
-#        . ~/.bash_splash
-#fi
+# CREATE A CUSTOM LOGIN SPLASH SCREEN TO DISPLAY CERTAIN DETAILS WHEN YOU LOGIN THROUGH SSH
+# ADD THE FOLLOWING COMMNTED OUT LINES TO THE BOTTOM OF YOUR ~/.bashrc FILE
+if [ -f ~/.bash_splash ]; then
+        . ~/.bash_splash
+fi
 
 
 let upSeconds="$(/usr/bin/cut -d. -f1 /proc/uptime)"
@@ -13,9 +12,9 @@ let hours=$((${upSeconds}/3600%24))
 let days=$((${upSeconds}/86400))
 UPTIME=`printf "%d days, %02d:%02d:%02d" "$days" "$hours" "$mins" "$secs"`
 
-#GET SYSTEM LOAD AVERAGES
+# GET SYSTEM LOAD AVERAGES
 read one five fifteen rest < /proc/loadavg
-#CHANGE OUTPUT COLOR TO GREEN
+# CHANGE OUTPUT COLOR TO GREEN
 echo "$(tput setaf 2)
 Date...............: `date +"%A, %B %d %Y %H:%M:%S"`
 Kernel & OS........: `uname -srmo`

@@ -1,17 +1,17 @@
-# Add the following lines to ~/.bashrc
-# Custom user specific configurations
-#if [ -f ~/.bash_user ]; then
-#        . ~/.bash_user  
-#fi
+# ADD THE FOLLOWING LINES TO ~/.bashrc
+# CUSTOM USER SPECIFIC CONFIGURATIONS
+if [ -f ~/.bash_user ]; then
+        . ~/.bash_user
+fi
 
-# Add timestamp to Bash history
+# ADD TIMESTAMP TO BASH HISTORY
 export HISTTIMEFORMAT="%y/%m/%d %T - "
 
-# Custom command prompt
-# Example of what prompt will look like
+# CUSTOM COMMAND PROMPT
+# EXAMPLE OF WHAT PROMPT WILL LOOK LIKE
 # Wed Sep 12 17:09 user@host:~/dir [master]$
 # Created by http://ezprompt.net/
-# get current branch in git repo
+# GET CURRENT BRANCH IN GIT REPO
 function parse_git_branch() {
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
 	if [ ! "${BRANCH}" == "" ]
@@ -23,7 +23,7 @@ function parse_git_branch() {
 	fi
 }
 
-# get current status of git repo
+# GET CURRENT STATUS OF GIT REPO
 function parse_git_dirty {
 	status=`git status 2>&1 | tee`
 	dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
