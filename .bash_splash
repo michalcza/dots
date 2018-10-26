@@ -1,29 +1,35 @@
 # CREATE A CUSTOM LOGIN SPLASH SCREEN TO DISPLAY CERTAIN DETAILS WHEN YOU LOGIN THROUGH SSH
-# ADD THE FOLLOWING COMMNTED OUT LINES TO THE BOTTOM OF YOUR ~/.bashrc FILE
-if [ -f ~/.bash_splash ]; then
-        . ~/.bash_splash
-fi
+# FIRST MAKE SURE TO ADD THE FOLLOWING TEST TO THE BOTTOM OF YOUR ~/.bashrc FILE
+# REMOVE THE COMMENT MARKS WHEN ADDING TEST TO ~./bashrc
+#
+# if [ -f ~/.bash_splash ]; then
+#        . ~/.bash_splash
+# fi
 
-
+# DECLARE AND STRUCTURE VARIABLES
 let upSeconds="$(/usr/bin/cut -d. -f1 /proc/uptime)"
 let secs=$((${upSeconds}%60))
 let mins=$((${upSeconds}/60%60))
 let hours=$((${upSeconds}/3600%24))
 let days=$((${upSeconds}/86400))
 UPTIME=`printf "%d days, %02d:%02d:%02d" "$days" "$hours" "$mins" "$secs"`
+# GET ACTIVE ETHERNET DEVICE NAME
+DEVICE=`ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active' | egrep -o -m 1 '^[^\t:]+'`
 
 # GET SYSTEM LOAD AVERAGES
 read one five fifteen rest < /proc/loadavg
+
 # CHANGE OUTPUT COLOR TO GREEN
 echo "$(tput setaf 2)
+
+# DISPLAY
 Date...............: `date +"%A, %B %d %Y %H:%M:%S"`
 Kernel & OS........: `uname -srmo`
 Uptime.............: ${UPTIME}
 Memory.............: `cat /proc/meminfo | grep MemFree | awk {'print $2'}`kB (Free) / `cat /proc/meminfo | grep MemTotal | awk {'print $2'}`kB (Total)
 Load Averages......: ${one}, ${five}, ${fifteen} (1, 5, 15 min)
 Running Processes..: `ps ax | wc -l | tr -d " "`
-#Update your network interface device here
-IP Addresses.......: `/sbin/ifconfig [interface name] | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1` and `wget -q -O - http://icanhazip.com/ | tail`
+IP Addresses.......: `/sbin/ifconfig $DEVICE | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1` and `wget -q -O - http://icanhazip.com/ | tail`
 Used Disk Space....: `df -Pk | grep -E '^[/DRIVE/MOUNT]' | awk '{ print $5 }'` on [/DRIVE/MOUNT]
 Weather ([zip])....: `curl -s "http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&locCode=[ZIPCODE]" | sed -n '/Currently:/ s/.*: \(.*\): \([0-9]*\)\([CF]\).*/\2°\3, \1/p'`
 $(tput sgr0)"
