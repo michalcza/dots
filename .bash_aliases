@@ -26,3 +26,6 @@ alias sweep="for i in {1..254}; do ping -c 1 -W 1 192.168.1.180 | grep 'from'; d
 # LIST CURRENT OPEN PORTS AND CONNECTIONS
 alias tcpports="lsof | grep -i tcp"
 alias udpports="lsof | grep -i tcp"
+
+# LIST DEVICES ON MAC OS
+alias devices="diskutil list"
