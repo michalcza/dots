@@ -29,3 +29,7 @@ alias udpports="lsof | grep -i tcp"
 
 # LIST DEVICES ON MAC OS
 alias devices="diskutil list"
+
+# SSH Key fingerpint
+# Usage: fingerprint ~/.ssh/key_file
+function fingerprint() { ssh-keygen -lf $1 -E md5; }
