@@ -27,9 +27,17 @@ alias sweep="for i in {1..254}; do ping -c 1 -W 1 192.168.1.180 | grep 'from'; d
 alias tcpports="lsof | grep -i tcp"
 alias udpports="lsof | grep -i tcp"
 
+<<<<<<< HEAD
 # LIST DEVICES ON MAC OS
 alias devices="diskutil list"
 
 # SSH Key fingerpint
 # Usage: fingerprint ~/.ssh/key_file
 function fingerprint() { ssh-keygen -lf $1 -E md5; }
+=======
+# CENTOS/REDHAT/UBUNTU VERSION
+alias version_RHEL1="hostnamectl"
+alias version_RHEL2="uname -or"
+alias version_RHEL3="uname -a"
+alias version_debian="lsb_release -a"
+>>>>>>> origin/master
