@@ -12,7 +12,9 @@
 alias scp="scp -p"
 
 # RESTART SSH ON UBUNTU/PI
-alias restartssh="sudo systemctl restart sshd"
+alias restartssh_lux ="sudo systemctl restart sshd"
+# RESTART SSH ON MAC OS
+alias restartssh_mac ="sudo launchctl stop com.openssh.sshd && sudo launchctl start com.openssh.sshd"
 
 # EJECT CD/DVD ON MACOS
 alias eject='drutil tray eject'
@@ -25,7 +27,7 @@ alias sweep="for i in {1..254}; do ping -c 1 -W 1 192.168.1.180 | grep 'from'; d
 
 # LIST CURRENT OPEN PORTS AND CONNECTIONS
 alias tcpports="lsof | grep -i tcp"
-alias udpports="lsof | grep -i tcp"
+alias udpports="lsof | grep -i udp"
 
 <<<<<<< HEAD
 # LIST DEVICES ON MAC OS
@@ -41,3 +43,9 @@ alias version_RHEL2="uname -or"
 alias version_RHEL3="uname -a"
 alias version_debian="lsb_release -a"
 >>>>>>> origin/master
+
+# DIRECTORY SHORTCUTS
+alias cdgithub="cd $HOME/Documents/GitHub"
+
+# COPY TO CLIPBOARD
+alias clip = "pbcopy < $1"
