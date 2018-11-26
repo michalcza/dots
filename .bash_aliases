@@ -49,3 +49,7 @@ alias cdgithub="cd $HOME/Documents/GitHub"
 
 # COPY TO CLIPBOARD
 alias clip = "pbcopy < $1"
+
+# PERMISSIONS
+alias permissions="stat -f %A $1 || stat -c "%a %n" $1 || stat -c %a $1"
+
