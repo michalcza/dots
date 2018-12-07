@@ -12,9 +12,9 @@
 alias scp="scp -p"
 
 # RESTART SSH ON UBUNTU/PI
-alias restartssh_lux ="sudo systemctl restart sshd"
+alias restartssh_lux="sudo systemctl restart sshd"
 # RESTART SSH ON MAC OS
-alias restartssh_mac ="sudo launchctl stop com.openssh.sshd && sudo launchctl start com.openssh.sshd"
+alias restartssh_mac="sudo launchctl stop com.openssh.sshd && sudo launchctl start com.openssh.sshd"
 
 # EJECT CD/DVD ON MACOS
 alias eject='drutil tray eject'
@@ -48,4 +48,4 @@ alias version_debian="lsb_release -a"
 alias cdgithub="cd $HOME/Documents/GitHub"
 
 # COPY TO CLIPBOARD
-alias clip = "pbcopy < $1"
+alias clip="pbcopy < $1"
