@@ -17,6 +17,7 @@ let days=$((${upSeconds}/86400))
 UPTIME=`printf "%d days, %02d:%02d:%02d" "$days" "$hours" "$mins" "$secs"`
 # GET ACTIVE ETHERNET DEVICE NAME
 DEVICE=`ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active' | egrep -o -m 1 '^[^\t:]+'`
+ADDR=`echo `ifconfig $(netstat -nr | grep -e default -e "^0\.0\.0\.0" | head -1 | awk '{print $NF}') | grep -e "inet " | sed -e 's/.*inet //' -e 's/ .*//' -e 's/.*\://'``
 
 # GET SYSTEM LOAD AVERAGES
 read one five fifteen rest < /proc/loadavg
