@@ -1,8 +1,0 @@
-# Domain filter list
-# License: GPLv3
-# Contact: mczarnecki@gmail.com
-instagram.com
-#facebook.com
-weknow.ac
-easyanticheat.com
-youtube.com
