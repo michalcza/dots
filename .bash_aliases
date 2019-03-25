@@ -49,3 +49,6 @@ alias cdgithub="cd $HOME/Documents/GitHub"
 
 # COPY TO CLIPBOARD
 alias clip="pbcopy < $1"
+
+# SSH-KEYGEN
+alias ssh-keygen="ssh-keygen -t rsa -b 4096"
