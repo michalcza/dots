@@ -23,13 +23,12 @@ alias eject='drutil tray eject'
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 # PING SWEEP FOR A DEVICE ON A 192.168.1.XXX
-alias sweep="for i in {1..254}; do ping -c 1 -W 1 192.168.1.180 | grep 'from'; done"
+alias sweep="for i in {1..254}; do ping -c 1 -W 1 192.168.1.$i | grep 'from'; done"
 
 # LIST CURRENT OPEN PORTS AND CONNECTIONS
 alias tcpports="lsof | grep -i tcp"
 alias udpports="lsof | grep -i udp"
 
-<<<<<<< HEAD
 # LIST DEVICES ON MAC OS
 alias devices="diskutil list"
 
@@ -42,7 +41,6 @@ alias version_RHEL1="hostnamectl"
 alias version_RHEL2="uname -or"
 alias version_RHEL3="uname -a"
 alias version_debian="lsb_release -a"
->>>>>>> origin/master
 
 # DIRECTORY SHORTCUTS
 alias cdgithub="cd $HOME/Documents/GitHub"
