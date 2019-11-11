@@ -50,3 +50,6 @@ alias clip="pbcopy < $1"
 
 # SSH-KEYGEN
 alias ssh-keygen="ssh-keygen -t rsa -b 4096"
+
+#BASH INTO SPECIFIC DOCKER CONTAINER
+alias dockerssh='docker exec -it [IMAGE_ID] /bin/bash'
