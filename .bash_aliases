@@ -52,4 +52,7 @@ alias clip="pbcopy < $1"
 alias ssh-keygen="ssh-keygen -t rsa -b 4096"
 
 #BASH INTO SPECIFIC DOCKER CONTAINER
-alias dockerssh='docker exec -it [IMAGE_ID] /bin/bash'
+alias dockerssh='docker exec -it $1 /bin/bash'
+
+#CONVERT FILE FROM MULTIPLE LINES INTO ONE LINE
+alias paste="paste -s -d '\0' $1"
