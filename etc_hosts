@@ -1,6 +1,7 @@
 # custom redirects in addition to /etc/hosts config
 # typically downloaded from http://someonewhocares.org/hosts/
 # Windows 10 "C:\Windows\System32\drivers\etc\hosts" in admin mode
+#127.0.0.1 (\.|^)(ad|cn|ch|cg|ru)$
 127.0.0.1 s0.2mdn.net
 127.0.0.1 2mdn.net
 127.0.0.1 adlightning.com
