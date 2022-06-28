@@ -1,0 +1,22 @@
+# custom redirects in addition to /etc/hosts config
+# typically downloaded from http://someonewhocares.org/hosts/
+# Windows 10 "C:\Windows\System32\drivers\etc\hosts" in admin mode
+127.0.0.1 s0.2mdn.net
+127.0.0.1 2mdn.net
+127.0.0.1 adlightning.com
+127.0.0.1 cloudfront.net
+127.0.0.1 googlesyndication.com
+127.0.0.1 revcatch.com
+127.0.0.1 servenobid.com
+127.0.0.1 stripe.com
+127.0.0.1 siftscience.com
+127.0.0.1 pubmatic.com
+127.0.0.1 ad-cdn.technoratimedia.com
+127.0.0.1 public.servenobid.com
+127.0.0.1 ads.us.criteo.com
+127.0.0.1 criteo.com
+127.0.0.1 googleads.g.doubleclick.net
+127.0.0.1 start.nuviasmiles.com
+127.0.0.1 adssettings.google.com
+127.0.0.1 doubleclick.net
+127.0.0.1 deseretdigital.com/advertising
